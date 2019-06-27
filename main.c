@@ -18,12 +18,11 @@ int main ( int argc, char *argv[] )
 
     /* initialize RBT root */
     strcpy(str, "This is first root word");
-    root = insert_node(root,int_comp,1,str); 
+    root = RB_INSERT(root,1,str);
     /* printf("\n\ndata = %d\n\n", root->data);
-    printf("\n\ncolor = %d\n\n", root->color);
-    printf("\n\nword = %s\n\n", root->word); */
-
-    
+    printf("\n\ncolor = %d\n\n", root->Color);
+    printf("\n\nword = %s\n\n", root->word);*/
+      
     if (argc == MAX_FILES - ONE) {
 		printf("Missing Filename\n");
 		return(1);
@@ -45,3 +44,5 @@ void Print_intro ()
 	printf("\nand found English words with mistake.\n");
 	printf("****************************************\n");
 }
+
+/* root = insert_node(root,int_comp,1,str); */

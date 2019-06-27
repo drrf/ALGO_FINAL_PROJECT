@@ -36,11 +36,12 @@ typedef enum ColorType {
 
 typedef struct node
 {
-    int data;
     ColorType Color;
+    int data;
     char word[MAX_WORD];
     struct node* left;
     struct node* right;
+    struct node* parent;
 } node;
 
 typedef int (*comparer)(int, int);
@@ -58,5 +59,9 @@ node* create_node(int , char[] );
 node* insert_node(node *, comparer , int , char[] );
 node* change_root(node *, int , char[] );
 void display_tree(node* );
+node* RB_INSERT(node *, int , char []);
+node* RB_INSERT_FIXUP(node *, node *);
+node* LEFT_ROTATE(node *, node *);
+node* RIGHT_ROTATE(node *, node *);
 
 /* FUNC on hash.c */

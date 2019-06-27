@@ -1,5 +1,5 @@
 # MAKEFILE FOR ASSEMBLER PROGRAM
-# Last Modified: May 8, 2018
+# Last Modified: June 26, 2019
 # GLOBAL DEFINITIONS
 # RUN: ./myprog file_dic.txt file_read.txt
 GCC=gcc -c -g

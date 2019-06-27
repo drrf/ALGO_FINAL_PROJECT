@@ -34,7 +34,8 @@ int File_to_RBT (char* file_n, node* root)
 			if (isspace(ch)){
 				word[w_ind] = '\0';
 				w_ind = ZERO;
-                root = insert_node(root,int_comp,++rbt_ind,word);
+				root = RB_INSERT(root,++rbt_ind,word);
+                /*root = insert_node(root,int_comp,++rbt_ind,word);*/
 			} else {
 				word[w_ind++] = ch;
 			}
@@ -42,7 +43,7 @@ int File_to_RBT (char* file_n, node* root)
 	} else {
 		printf("Failed to open the file\n");
 	}
-
+	printf("FINISH!!\n");
 	return 0;
 }
 
