@@ -4,7 +4,7 @@
 # RUN: ./myprog file_dic.txt file_read.txt
 GCC=gcc -c -g
 FLAGS = -ansi -Wall -pedantic
-ALLFILES = main.o file_to_x.o hash.o rbt.o
+ALLFILES = main.o file_to_x.o hash.o rbt.o rbt_others.o hash_others.o
 
 myprog : $(ALLFILES)
 	gcc -g $(FLAGS) $(ALLFILES) -o myprog
@@ -20,6 +20,12 @@ hash.o : hash.c my_h.h
 
 rbt.o : rbt.c my_h.h
 	$(GCC) $(FLAGS) rbt.c -o rbt.o
+
+rbt_others.o : rbt_others.c my_h.h
+	$(GCC) $(FLAGS) rbt_others.c -o rbt_others.o
+
+hash_others.o : hash_others.c my_h.h
+	$(GCC) $(FLAGS) hash_others.c -o hash_others.o
 
 
 run:

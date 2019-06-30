@@ -20,11 +20,15 @@
 #define TRUE 1
 #define FIRST 1
 
-/* DEFINE MAX LENGTH */
+/* DEFINE MIN-MAX LENGTH */
 #define MAX_FILES 3         /* MAX FILE THAT PROGRAM CAN INPUT IN 1 RUN */
 #define MAX_WORD 99         /* MAX WORD LENGTH & IN ONE LINE */
 #define MAX_LINE 512        /* MAX LINE LENGTH & LINES IN FILES */
 #define MAX_CODE 99999	    /* MAX CODE IN ONE .AS FILE */
+
+/* DEFINE HASH */
+#define HASH_SIZE 53	/* MUST USE A PRIME NUM */	
+/* int Hash_Arr_Size = HASH_SIZE; */
 
 /* SIMPLE THE CODE FROM NUNBERS */
 enum NUM_ID { ZERO, ONE, TWO, THREE, FOUR, FIVE };
@@ -44,14 +48,22 @@ typedef struct node
     struct node* parent;
 } node;
 
+typedef struct hash
+{
+	char* hashArr1[HASH_SIZE];			/* the cell of the hash */
+    char hashArr[HASH_SIZE][MAX_WORD];	/* the cell of the hash */
+    char* h_ptr;						/* pointer to the cell hash */
+} hash;
+
 typedef int (*comparer)(int, int);
 
 /* FUNC on main.c */
 void Print_intro();
+void Print_outro();
 
 /* FUNC on file_to_x.c */
-int File_to_Hash (char* );
-int File_to_RBT (char* , node*);
+int File_to_Hash (char* , hash* );
+node* File_to_RBT (char* , node* );
 
 /* FUNC on rbt.c */
 int compare(int ,int );
@@ -65,3 +77,14 @@ node* LEFT_ROTATE(node *, node *);
 node* RIGHT_ROTATE(node *, node *);
 
 /* FUNC on hash.c */
+int hashFunc1(char []);
+int hashFunc2(char []);
+int hashCode(char []);
+
+/* FUNC on hash_others.c */
+int isPrime(int );
+int getNextPrime(int );
+int printHashTable (hash* );
+int hashInitialize (hash* );
+int insertHash(hash* , char []);
+int findHash(hash* , char []);
