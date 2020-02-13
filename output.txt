@@ -1,0 +1,30 @@
+****************************************
+This program read words from files,
+and found the English words with mistake.
+****************************************
+
+THE TEXT TO CHECK FROM THE FILE "file_read.txt":
+
+the man in the row in front turnned when hee haerd his name caled but he had no ideea who called him and he was woried mayby the polise were lokking for him so he ran and hid in the kar
+
+
+====================================
+THE FINAL RBT: English words with mistake
+====================================
+
+The word #8 missing from HASH TABLE: "turnned"
+The word #10 missing from HASH TABLE: "hee"
+The word #11 missing from HASH TABLE: "haerd"
+The word #14 missing from HASH TABLE: "caled"
+The word #19 missing from HASH TABLE: "ideea"
+The word #26 missing from HASH TABLE: "woried"
+The word #27 missing from HASH TABLE: "mayby"
+The word #29 missing from HASH TABLE: "polise"
+The word #31 missing from HASH TABLE: "lokking"
+The word #38 missing from HASH TABLE: "hid"
+The word #41 missing from HASH TABLE: "kar"
+
+****************************************
+This program finish is jobs successfully.
+****************************************
+

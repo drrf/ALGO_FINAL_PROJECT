@@ -17,32 +17,28 @@ node* File_to_RBT (char* file_n, node* root)
 	char word[MAX_WORD];
 	int w_ind = ZERO, rbt_ind = ONE;
 
-	comparer int_comp = compare;
-
 	filename = file_n;
-	printf("Filename : %s\n", filename);
 
 	/* Open file in read-only mode */
 	fp = fopen(filename,"r");
-
+	
+	printf("\nTHE TEXT TO CHECK FROM THE FILE \"%s\":\n\n",filename);
 	/* If file opened successfully, then print the contents */
 	if ( fp )
 	{
-		printf("File contents:\n");
 		while ( (ch = fgetc(fp)) != EOF ){
-			if (isspace(ch)){
+			printf("%c",ch);
+			if (isspace(ch)){ /* WHEN THIS IS END OF WORD */
 				word[w_ind] = '\0';
 				w_ind = ZERO;
-				root = RB_INSERT(root,++rbt_ind,word);
-                /*root = insert_node(root,int_comp,++rbt_ind,word);*/
+				root = RB_INSERT(root,++rbt_ind,word);	/* INESRT THE WORD TO RBT */
 			} else {
 				word[w_ind++] = ch;
 			}
 		}
 	} else {
-		printf("Failed to open the file\n");
+		printf("Failed to open the file : %s\n", filename);
 	}
-	printf("FINISH File_to_RBT!!\n");
 	return root;
 }
 
@@ -57,7 +53,6 @@ int File_to_Hash (char* file_n, hash* hash_ptr)
 	int w_ind = ZERO;
 
 	filename = file_n;
-	printf("Filename : %s\n", filename);
 
 	/* Open file in read-only mode */
 	fp = fopen(filename,"r");
@@ -65,21 +60,17 @@ int File_to_Hash (char* file_n, hash* hash_ptr)
 	/* If file opened successfully, then print the contents */
 	if ( fp )
 	{
-		printf("File contents:\n");
 		while ( (ch = fgetc(fp)) != EOF ){
-			if (isspace(ch)){
+			if (isspace(ch)){	/* WHEN THIS IS END OF WORD */
 				word[w_ind] = '\0';
 				w_ind = ZERO;
-				/*hash_ptr->h_ptr = hash_ptr->hashArr[hash_cell++];
-				strcpy(hash_ptr->h_ptr, word); */
-				insertHash(hash_ptr, word);
+				insertHash(hash_ptr, word);	/* INESRT THE WORD TO HASH TABLE */
 			} else {
 				word[w_ind++] = ch;
 			}
 		}
 	} else {
-		printf("Failed to open the file\n");
+		printf("Failed to open the file : %s\n", filename);
 	}
-	printf("FINISH File_to_Hash!!\n");
 	return 0;
 }
